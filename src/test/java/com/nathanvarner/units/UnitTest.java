@@ -3,8 +3,14 @@ package com.nathanvarner.units;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class UnitTest {
+    @Test
+    public void Unit_intercept() {
+        new Unit(null, 1, 1, 1, "u");
+    }
+
     @Test
     public void toBaseUnit() {
         Unit meter = new Unit(null, 1, 1, "m");
@@ -44,6 +50,19 @@ public class UnitTest {
     }
 
     @Test
+    public void to_unlikeBaseUnit() {
+        Unit meter = new Unit(null, 1, 1, "m");
+        Unit second = new Unit(null, 1, 1, "s");
+
+        try {
+            meter.to(0, second);
+            fail();
+        } catch (Exception e) {
+            // Expected
+        }
+    }
+
+    @Test
     public void numberAsString() {
         Unit meter = new Unit(null, 1, 1, "m");
 
@@ -51,5 +70,11 @@ public class UnitTest {
         assertEquals("54 m", meter.numberAsString(54));
         assertEquals("2.6 m", meter.numberAsString(2.6));
         assertEquals("-765 m", meter.numberAsString(-765));
+    }
+
+    @Test
+    public void toString_test() {
+        Unit meter = new Unit(null, 1, 1, "m");
+        assertEquals("m", meter.toString());
     }
 }

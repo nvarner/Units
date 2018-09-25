@@ -2,3 +2,6 @@
 .idea
 build
 gradle
+
+# These files should be built, not saved
+pom.xml
