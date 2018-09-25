@@ -36,5 +36,4 @@ test:
       - .gradle
 
 release:
-  stage: release
   script: gradle bintrayUpload
