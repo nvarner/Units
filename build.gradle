@@ -16,8 +16,10 @@ plugins {
 
 apply plugin: 'com.jfrog.bintray'
 
+def versionTag = "2.0.0"
+
 group "com.nathanvarner.units"
-version "2.0.0"
+version versionTag
 
 sourceCompatibility = 1.8
 
@@ -56,7 +58,7 @@ publishing {
             artifact javadocJar
             groupId 'com.nathanvarner.units'
             artifactId 'units'
-            version '1.0.0'
+            version
             pom.withXml {
                 def root = asNode()
                 root.appendNode('name', 'units')
@@ -77,7 +79,7 @@ bintray {
         licenses = ["MIT"]
         vcsUrl = "https://gitlab.com/nvarner/units"
         version {
-            name = "2.0.0"
+            name = versionTag
             released = new Date()
         }
     }
