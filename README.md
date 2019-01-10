@@ -1,0 +1,2 @@
+# units
+This is a Java project designed to convert units. It comes with several built in units in the `Units` class. Custom units can be added. This project is a work in progress, so don't expect it to be 100% working yet.
